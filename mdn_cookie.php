@@ -530,11 +530,12 @@ class Mdn_cookie extends Module
     {
         $this->context->controller->addCSS($this->_path.'/views/css/front.css');
 
-        $language = ["en"];
         if(file_exists(__DIR__ . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR .'js'. DIRECTORY_SEPARATOR.'translations'.DIRECTORY_SEPARATOR.$this->context->language->iso_code.'.json')) {
             $language[] = $this->context->language->iso_code;
+        } else {
+            $language = ["en"];
         }
-
+        
         $this->context->smarty->assign(
             [
                 'colors' => [
